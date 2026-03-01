@@ -99,6 +99,14 @@ def save_state():
         logger.error(f"Failed to save state: {e}")
 
 
+import importlib.metadata
+
+def get_md_mcp_version():
+    try:
+        return importlib.metadata.version('md-mcp')
+    except importlib.metadata.PackageNotFoundError:
+        return "unknown"
+
 @app.route('/')
 def index():
     """Main page"""
@@ -106,7 +114,8 @@ def index():
                          folders=state.selected_folders,
                          kb_name=state.kb_name,
                          kb_status=state.kb_status,
-                         kb_path=state.kb_path)
+                         kb_path=state.kb_path,
+                         md_mcp_version=get_md_mcp_version())
 
 
 @app.route('/api/folders', methods=['GET'])
