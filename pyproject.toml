@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "anydocs-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "Convert code folders into Claude Desktop knowledge bases via MCP server"
 readme = "README.md"
 license = "MIT"
